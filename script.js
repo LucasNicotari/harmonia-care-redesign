@@ -45,8 +45,6 @@ const carousel = document.querySelector('[data-carousel]');
 
 if (carousel) {
   const slides = [...carousel.querySelectorAll('[data-slide]')];
-  const previousButton = carousel.querySelector('[data-carousel-prev]');
-  const nextButton = carousel.querySelector('[data-carousel-next]');
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   let currentIndex = 0;
   let timerId;
@@ -82,20 +80,6 @@ if (carousel) {
     }
   }
 
-  function selectSlide(index) {
-    showSlide(index);
-    startRotation();
-  }
-
-  previousButton?.addEventListener('click', () => selectSlide(currentIndex - 1));
-  nextButton?.addEventListener('click', () => selectSlide(currentIndex + 1));
-
-  carousel.addEventListener('mouseenter', stopRotation);
-  carousel.addEventListener('mouseleave', startRotation);
-  carousel.addEventListener('focusin', stopRotation);
-  carousel.addEventListener('focusout', () => window.setTimeout(() => {
-    if (!carousel.contains(document.activeElement)) startRotation();
-  }, 0));
   document.addEventListener('visibilitychange', startRotation);
   window.setTimeout(() => ensureSlideLoaded(1), 1200);
   startRotation();
