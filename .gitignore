@@ -1,0 +1,9 @@
+# Relatorios, capturas e artefatos locais de validacao
+.preview/
+diversity-candidates/
+
+# Arquivos temporarios do sistema e do editor
+*.log
+.DS_Store
+Thumbs.db
+
