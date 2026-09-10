@@ -2,7 +2,7 @@
 
 Protótipo navegável da proposta de otimização da home. É uma demonstração front-end independente e não altera o WordPress publicado.
 
-A versão atual apresenta a Home com fotografias em tela ampla, degradê lateral roxo para leitura e carrossel automático com cinco cenas de cuidado, sem controles visíveis. Os parceiros aparecem logo após a abertura, integrados à mesma assinatura visual. A proposta inclui ainda uma vitrine compacta com nove serviços e páginas internas para conteúdo institucional, especialidades e serviços.
+A versão atual apresenta a Home com fotografias em tela ampla, cabeçalho transparente, degradê lateral roxo para leitura e carrossel automático com cinco cenas de cuidado, sem controles visíveis. Os parceiros ficam em um painel compacto dentro da própria abertura, à direita do conteúdo principal. A proposta inclui ainda uma vitrine compacta com nove serviços e páginas internas para conteúdo institucional, especialidades e serviços.
 
 ## Executar
 
