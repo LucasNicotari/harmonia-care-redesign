@@ -161,3 +161,44 @@ if (whatsappNudge) {
   whatsappNudgeClose?.addEventListener('click', dismissWhatsAppNudge);
   whatsappNudge.querySelector('a')?.addEventListener('click', dismissWhatsAppNudge);
 }
+
+const testimonialCarousel = document.querySelector('[data-testimonial-carousel]');
+
+if (testimonialCarousel) {
+  const track = testimonialCarousel.querySelector('[data-testimonial-track]');
+  const cards = [...testimonialCarousel.querySelectorAll('.testimonial-card')];
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let groupIndex = 0;
+  let testimonialTimer;
+
+  function visibleCards() {
+    if (window.innerWidth <= 620) return 1;
+    if (window.innerWidth <= 820) return 2;
+    return 3;
+  }
+
+  function showTestimonialGroup(index) {
+    if (!track || !cards.length) return;
+    const visible = visibleCards();
+    const groups = Math.ceil(cards.length / visible);
+    groupIndex = (index + groups) % groups;
+    const firstCard = cards[0];
+    const gap = parseFloat(getComputedStyle(track).gap) || 0;
+    const distance = (firstCard.getBoundingClientRect().width + gap) * visible * groupIndex;
+    const maxDistance = Math.max(0, track.scrollWidth - testimonialCarousel.clientWidth);
+    track.style.transform = `translateX(-${Math.min(distance, maxDistance)}px)`;
+  }
+
+  function startTestimonials() {
+    window.clearInterval(testimonialTimer);
+    if (!reduceMotion && !document.hidden && cards.length > visibleCards()) {
+      testimonialTimer = window.setInterval(() => showTestimonialGroup(groupIndex + 1), 6200);
+    }
+  }
+
+  testimonialCarousel.addEventListener('mouseenter', () => window.clearInterval(testimonialTimer));
+  testimonialCarousel.addEventListener('mouseleave', startTestimonials);
+  window.addEventListener('resize', () => { groupIndex = 0; showTestimonialGroup(0); startTestimonials(); });
+  document.addEventListener('visibilitychange', startTestimonials);
+  startTestimonials();
+}
