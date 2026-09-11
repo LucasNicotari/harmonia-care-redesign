@@ -57,6 +57,15 @@ document.querySelectorAll('.js-instagram').forEach((link) => {
   });
 });
 
+const googleReviewsLink = document.querySelector('#testimonials-google-link');
+if (googleReviewsLink) {
+  document.querySelectorAll('.testimonial-card__more').forEach((link) => {
+    link.href = googleReviewsLink.href;
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+  });
+}
+
 const year = document.querySelector('[data-current-year]');
 if (year) year.textContent = String(new Date().getFullYear());
 
@@ -203,7 +212,7 @@ if (testimonialCarousel) {
   function startTestimonials() {
     window.clearInterval(testimonialTimer);
     if (!reduceMotion && !document.hidden && cards.length > visibleCards()) {
-      testimonialTimer = window.setInterval(() => showTestimonialGroup(groupIndex + 1), 6200);
+      testimonialTimer = window.setInterval(() => showTestimonialGroup(groupIndex + 1), 15000);
     }
   }
 
