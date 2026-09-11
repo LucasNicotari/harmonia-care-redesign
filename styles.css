@@ -396,6 +396,10 @@ p { margin-bottom: 20px; }
 .whatsapp-nudge[hidden] { display: none; }
 .whatsapp-nudge { position: fixed; z-index: 305; right: 22px; bottom: 94px; width: min(330px, calc(100vw - 40px)); padding: 18px 44px 17px 18px; color: var(--ink); background: rgba(255,255,255,.98); border: 1px solid #dcd0ea; border-radius: 15px; box-shadow: 0 18px 50px rgba(32,10,58,.22); opacity: 0; transform: translateY(12px); transition: opacity 200ms ease, transform 200ms ease; backdrop-filter: blur(10px); }
 .whatsapp-nudge.is-visible { opacity: 1; transform: translateY(0); }
+.whatsapp-nudge { width: min(360px, calc(100vw - 40px)); padding: 24px; background: linear-gradient(145deg, #fff 65%, #f5effc); max-height: calc(100dvh - 110px); overflow-y: auto; }
+.whatsapp-nudge__logo { display: block; width: 126px; height: auto; margin-bottom: 20px; }
+.whatsapp-nudge h2 { margin: 0 0 12px; font-size: 1.25rem; line-height: 1.3; }
+.whatsapp-nudge p.whatsapp-nudge__description { margin: 0 0 20px; color: var(--muted); font-size: .85rem; line-height: 1.6; font-weight: 400; letter-spacing: normal; text-transform: none; }
 .whatsapp-nudge > button { position: absolute; top: 7px; right: 8px; display: grid; place-items: center; width: 34px; height: 34px; padding: 0; color: #5d5367; background: transparent; border: 0; border-radius: 50%; font-size: 1.2rem; cursor: pointer; }
 .whatsapp-nudge > button:hover { background: #f3edf8; }
 .whatsapp-nudge p { margin: 0 0 5px; color: var(--brand); font-size: .62rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }

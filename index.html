@@ -12,8 +12,8 @@
     <link rel="icon" href="assets/images/logo.png" />
     <link rel="preload" as="font" href="assets/fonts/varela-round-latin.woff2" type="font/woff2" crossorigin />
     <link rel="preload" as="image" href="assets/images/hero.webp" type="image/webp" />
-    <link rel="stylesheet" href="styles.css?v=20260911-8" />
-    <script src="script.js?v=20260911-8" defer></script>
+    <link rel="stylesheet" href="styles.css?v=20260911-9" />
+    <script src="script.js?v=20260911-9" defer></script>
   </head>
   <body class="home-page">
     <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
@@ -318,12 +318,6 @@
 
     </main>
 
-    <aside class="whatsapp-nudge" data-whatsapp-nudge aria-label="Ajuda para escolher um serviço" hidden>
-      <button type="button" data-whatsapp-nudge-close aria-label="Fechar lembrete de contato">×</button>
-      <p>Ainda com dúvidas?</p>
-      <strong>Conte o que sua família precisa. A equipe ajuda a identificar o atendimento mais adequado.</strong>
-      <a class="js-whatsapp" href="https://wa.me/5534988388116?text=Ol%C3%A1%2C%20preciso%20de%20ajuda%20para%20entender%20qual%20servi%C3%A7o%20%C3%A9%20mais%20adequado." target="_blank" rel="noopener noreferrer" data-section="contextual_nudge" data-service-interest="general">Pedir orientação <span aria-hidden="true">→</span></a>
-    </aside>
 
     <a class="floating-whatsapp js-whatsapp" href="https://wa.me/5534988388116?text=Ol%C3%A1%2C%20gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20os%20servi%C3%A7os%20da%20Harmonia%20Care." target="_blank" rel="noopener noreferrer" data-section="floating" data-service-interest="general" aria-label="Falar com a Harmonia Care pelo WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 3.5A11.8 11.8 0 0 0 12.1 0C5.6 0 .3 5.3.3 11.8c0 2.1.6 4.2 1.6 6L0 24l6.4-1.7a12 12 0 0 0 5.7 1.4h.1c6.5 0 11.8-5.3 11.8-11.8 0-3.2-1.2-6.2-3.5-8.4Zm-8.4 18.2c-1.8 0-3.6-.5-5.1-1.4l-.4-.2-3.8 1 1-3.7-.2-.4a9.8 9.8 0 1 1 8.5 4.7Zm5.4-7.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.2l-.9 1.1c-.2.2-.4.2-.7.1-1.8-.9-3-1.6-4.2-3.6-.3-.5.3-.5.9-1.7.1-.2 0-.5 0-.7l-.9-2c-.2-.5-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.2-1.2 2.9s1.2 3.3 1.4 3.5c.2.2 2.4 3.7 5.8 5.2 2.1.9 2.9 1 3.9.8.6-.1 1.7-.7 1.9-1.3.2-.7.2-1.2.2-1.3-.1-.1-.3-.2-.6-.3Z"/></svg></a>
 
@@ -350,15 +344,12 @@
       </div>
     </footer>
 
-    <aside class="partner-popup" data-partner-popup aria-label="Parceiros Harmonia Care" hidden>
-      <button class="partner-popup__close" type="button" data-partner-popup-close aria-label="Fechar mensagem de parceiros">×</button>
-      <p class="partner-popup__eyebrow">Juntos pelo cuidado</p>
-      <strong>Conheça nossos parceiros</strong>
-      <div class="partner-popup__logos">
-        <img src="assets/images/partner-soma.webp" alt="Soma Neuromodulação" width="500" height="199" loading="lazy" />
-        <img src="assets/images/partner-cirurgica.png" alt="Cirúrgica Uberlândia" width="400" height="131" loading="lazy" />
-      </div>
-      <a href="sobre.html#parceiros">Conhecer nossos parceiros <span aria-hidden="true">→</span></a>
+  <aside class="whatsapp-nudge" data-whatsapp-nudge aria-labelledby="help-title" hidden>
+      <button type="button" data-whatsapp-nudge-close aria-label="Fechar ajuda">×</button>
+      <img class="whatsapp-nudge__logo" src="assets/images/logo.png" alt="Harmonia Care" width="600" height="252" />
+      <h2 id="help-title">Podemos ajudar a escolher o cuidado?</h2>
+      <p class="whatsapp-nudge__description">Conte o que sua família precisa. Nossa equipe orienta você sobre os serviços e o atendimento em Uberlândia, Araguari e região.</p>
+      <a class="button js-whatsapp" href="https://wa.me/5534988388116?text=Ol%C3%A1%2C%20preciso%20de%20orienta%C3%A7%C3%A3o%20para%20escolher%20um%20servi%C3%A7o." target="_blank" rel="noopener noreferrer" data-section="contextual_nudge" data-service-interest="general">Pedir orientação</a>
     </aside>
   </body>
 </html>

@@ -113,74 +113,44 @@ if (carousel) {
   startRotation();
 }
 
-const partnerPopup = document.querySelector('[data-partner-popup]');
-const partnerPopupClose = partnerPopup?.querySelector('[data-partner-popup-close]');
-
-function dismissPartnerPopup() {
-  if (!partnerPopup) return;
-  partnerPopup.classList.remove('is-visible');
-  try { window.sessionStorage.setItem('harmonia-partners-dismissed', 'true'); } catch {}
-  window.setTimeout(() => { partnerPopup.hidden = true; }, 220);
-  window.setTimeout(() => maybeShowWhatsAppNudge(), 300);
-}
-
-if (partnerPopup) {
-  let wasDismissed = false;
-  try { wasDismissed = window.sessionStorage.getItem('harmonia-partners-dismissed') === 'true'; } catch {}
-  if (!wasDismissed) {
-    window.setTimeout(() => {
-      partnerPopup.hidden = false;
-      window.requestAnimationFrame(() => partnerPopup.classList.add('is-visible'));
-    }, 4200);
-  }
-  partnerPopupClose?.addEventListener('click', dismissPartnerPopup);
-  partnerPopup.querySelector('a')?.addEventListener('click', dismissPartnerPopup);
-}
-
 const whatsappNudge = document.querySelector('[data-whatsapp-nudge]');
-const whatsappNudgeClose = whatsappNudge?.querySelector('[data-whatsapp-nudge-close]');
-let whatsappNudgeTimer;
-let whatsappNudgePending = false;
-let whatsappNudgeShown = false;
-let whatsappNudgeDismissed = false;
-
-function dismissWhatsAppNudge() {
-  if (!whatsappNudge) return;
-  window.clearTimeout(whatsappNudgeTimer);
-  whatsappNudgeDismissed = true;
-  whatsappNudge.classList.remove('is-visible');
-  window.setTimeout(() => { whatsappNudge.hidden = true; }, 200);
-}
-
-function maybeShowWhatsAppNudge() {
-  if (!whatsappNudge || !whatsappNudgePending || whatsappNudgeShown || whatsappNudgeDismissed) return;
-  const partnerIsVisible = partnerPopup && !partnerPopup.hidden && partnerPopup.classList.contains('is-visible');
-  if (partnerIsVisible) return;
-  whatsappNudgeShown = true;
-  whatsappNudge.hidden = false;
-  window.requestAnimationFrame(() => whatsappNudge.classList.add('is-visible'));
-  whatsappNudgeTimer = window.setTimeout(dismissWhatsAppNudge, 12000);
-}
-
 if (whatsappNudge) {
-  const doubtsSection = document.querySelector('[data-doubts-section]');
-  if (doubtsSection) {
-    const doubtsObserver = new IntersectionObserver(([entry]) => {
-      if (!entry.isIntersecting) return;
-      whatsappNudgePending = true;
-      maybeShowWhatsAppNudge();
-      doubtsObserver.disconnect();
-    }, { threshold: 0.22 });
-    doubtsObserver.observe(doubtsSection);
+  const sessionKey = 'harmonia-help-dismissed';
+  let dismissed = false;
+  try { dismissed = sessionStorage.getItem(sessionKey) === 'true'; } catch {}
+  let readingTime = 0;
+  let shown = false;
+  let lastTick = performance.now();
+  const ticker = window.setInterval(() => {
+    const now = performance.now();
+    if (!document.hidden) readingTime += Math.min(now - lastTick, 1500);
+    lastTick = now;
+    const pageHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = pageHeight > 0 ? window.scrollY / pageHeight : 1;
+    const ready = (readingTime >= 90000 && progress >= .75) || readingTime >= 180000;
+    if (!ready || dismissed || shown || document.hidden || document.body.classList.contains('menu-open')) return;
+    shown = true;
+    whatsappNudge.hidden = false;
+    requestAnimationFrame(() => whatsappNudge.classList.add('is-visible'));
+    clearInterval(ticker);
+  }, 1000);
+  function dismissHelp() {
+    dismissed = true;
+    clearInterval(ticker);
+    try { sessionStorage.setItem(sessionKey, 'true'); } catch {}
+    const hadFocus = whatsappNudge.contains(document.activeElement);
+    whatsappNudge.classList.remove('is-visible');
+    whatsappNudge.hidden = true;
+    if (hadFocus) document.querySelector('.floating-whatsapp')?.focus({ preventScroll: true });
   }
-
-  window.setTimeout(() => {
-    whatsappNudgePending = true;
-    maybeShowWhatsAppNudge();
-  }, 25000);
-  whatsappNudgeClose?.addEventListener('click', dismissWhatsAppNudge);
-  whatsappNudge.querySelector('a')?.addEventListener('click', dismissWhatsAppNudge);
+  whatsappNudge.querySelector('[data-whatsapp-nudge-close]')?.addEventListener('click', dismissHelp);
+  whatsappNudge.querySelector('a')?.addEventListener('click', dismissHelp);
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && !whatsappNudge.hidden) dismissHelp();
+  });
+  if (dismissed) clearInterval(ticker);
 }
+
 
 const testimonialCarousel = document.querySelector('[data-testimonial-carousel]');
 
