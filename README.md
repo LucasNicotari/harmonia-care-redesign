@@ -2,7 +2,7 @@
 
 Protótipo navegável da proposta de otimização da home. É uma demonstração front-end independente e não altera o WordPress publicado.
 
-A versão atual apresenta a Home com fotografias em tela ampla, cabeçalho fixo que muda de transparente para branco durante a rolagem, degradê lateral roxo e carrossel automático com cinco cenas de cuidado, sem controles visíveis. Os parceiros ficam em um painel compacto na abertura. A proposta inclui ainda uma grade estática com oito serviços, perguntas frequentes, contato contextual e páginas internas para conteúdo institucional, especialidades e serviços.
+A versão atual apresenta a Home com fotografias em tela ampla, cabeçalho fixo que muda de transparente para branco durante a rolagem, degradê lateral roxo e carrossel automático com cinco cenas de cuidado, sem controles visíveis. Os parceiros ficam em um painel compacto na abertura. A proposta inclui ainda uma grade estática com oito serviços, avaliações públicas, perguntas frequentes, contato contextual e páginas internas para conteúdo institucional, especialidades, serviços e cadastro profissional.
 
 ## Executar
 
@@ -28,6 +28,7 @@ Depois acesse `http://localhost:8000`.
 - `servicos.html`: página local detalhada de serviços e fluxo de contratação.
 - `sobre.html`: página institucional aprimorada, com propósito, princípios expansíveis, prática de cuidado e parceiros.
 - `especialidades.html`: orientação por necessidade, conectando situações de cuidado aos serviços correspondentes.
+- `trabalhe-conosco.html`: página de cadastro de currículos e apresentação das áreas profissionais.
 - `styles.css`: identidade visual e responsividade.
 - `script.js`: menu acessível, carrosséis automáticos, popup e eventos de WhatsApp.
 - `assets/images/`: assets públicos autorizados da Harmonia Care.
@@ -37,8 +38,7 @@ Depois acesse `http://localhost:8000`.
 ## Limites
 
 - Os parceiros devem ser confirmados antes de uma publicação real.
-- Depoimentos não foram incluídos por falta de autorização verificável.
-- Não foram criados nomes, avaliações ou relatos fictícios. A faixa de experiência da home apresenta compromissos da marca e está identificada como não sendo composta por depoimentos.
+- Os depoimentos são trechos de avaliações públicas fornecidas e verificadas durante a construção do protótipo; nenhum relato foi inventado.
 - O protótipo não contém backend, WordPress, Elementor ou banco de dados.
 - Nenhum dado de formulário ou dado de saúde é coletado.
 
@@ -59,7 +59,7 @@ Depois acesse `http://localhost:8000`.
 - Carrossel principal com cinco cenas validado em rotação automática a cada 5,5 segundos, sem botões ou indicadores visíveis e com respeito à preferência por movimento reduzido.
 - Oito serviços validados em grade estática, sem carrossel ou controles, com descrições individuais e links para a seção correspondente em `servicos.html`.
 - A página de serviços possui resumo operacional no primeiro bloco, oito explicações detalhadas, processo em quatro etapas e CTAs de WhatsApp segmentados.
-- Contato geral do WhatsApp posicionado no cabeçalho como CTA textual e rastreado por página; o ícone flutuante foi removido.
+- Contato geral do WhatsApp posicionado no cabeçalho como CTA textual e rastreado por página; um atalho flutuante discreto permanece disponível.
 - O contato permanece disponível no cabeçalho, nos serviços e em um lembrete contextual transitório.
 - O lembrete contextual aparece ao alcançar a seção de dúvidas, com fallback após 25 segundos. Nunca aparece junto ao popup de parceiros e fecha sozinho após 12 segundos.
 - Manifesto “Nossa forma de cuidar” incluído com três princípios derivados do conteúdo institucional público: pessoa antes do padrão, técnica com presença humana e família integrada.
