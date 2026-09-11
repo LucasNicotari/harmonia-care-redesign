@@ -12,8 +12,8 @@
     <link rel="icon" href="assets/images/logo.png" />
     <link rel="preload" as="font" href="assets/fonts/varela-round-latin.woff2" type="font/woff2" crossorigin />
     <link rel="preload" as="image" href="assets/images/hero.webp" type="image/webp" />
-    <link rel="stylesheet" href="styles.css?v=20260910-3" />
-    <script src="script.js?v=20260910-1" defer></script>
+    <link rel="stylesheet" href="styles.css?v=20260910-4" />
+    <script src="script.js?v=20260910-2" defer></script>
   </head>
   <body class="home-page">
     <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
@@ -57,6 +57,14 @@
             </p>
             <div class="hero__actions">
               <a class="button button--primary" href="servicos.html">Conhecer os serviços</a>
+              <a
+                class="button button--secondary js-whatsapp"
+                href="https://wa.me/5534988388116?text=Ol%C3%A1%2C%20gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20atendimento%20da%20Harmonia%20Care."
+                target="_blank"
+                rel="noopener noreferrer"
+                data-section="hero"
+                data-service-interest="orcamento"
+              >Solicitar orçamento</a>
             </div>
           </div>
 
@@ -291,12 +299,48 @@
         </div>
       </section>
 
+      <section id="duvidas" class="faq section" aria-labelledby="faq-title" data-doubts-section>
+        <div class="container faq__grid">
+          <div class="faq__intro">
+            <p class="eyebrow">Perguntas frequentes</p>
+            <h2 id="faq-title">Ainda com dúvidas?</h2>
+            <p>Veja respostas rápidas sobre o atendimento. Se a sua situação for diferente, nossa equipe pode orientar pelo WhatsApp.</p>
+            <a
+              class="button button--primary js-whatsapp"
+              href="https://wa.me/5534988388116?text=Ol%C3%A1%2C%20ainda%20tenho%20d%C3%BAvidas%20sobre%20o%20atendimento%20da%20Harmonia%20Care."
+              target="_blank"
+              rel="noopener noreferrer"
+              data-section="faq"
+              data-service-interest="general"
+            >Conversar com a equipe</a>
+          </div>
+          <div class="faq__list">
+            <details open>
+              <summary>Em quais cidades a Harmonia Care atende?</summary>
+              <p>O atendimento domiciliar está disponível em Uberlândia, cidades da região e São Paulo. Consulte a equipe para confirmar a cobertura no seu endereço.</p>
+            </details>
+            <details>
+              <summary>Quais serviços podem ser contratados?</summary>
+              <p>A Harmonia Care oferece cuidadores, enfermagem, fisioterapia, fonoaudiologia, nutrição, terapia ocupacional e babysitter, conforme a necessidade avaliada.</p>
+            </details>
+            <details>
+              <summary>É possível solicitar atendimento por convênio?</summary>
+              <p>A cobertura depende das regras do plano e do serviço solicitado. A equipe verifica as condições antes do início do atendimento.</p>
+            </details>
+            <details>
+              <summary>Como solicitar uma avaliação ou orçamento?</summary>
+              <p>Entre em contato pelo WhatsApp, informe o tipo de apoio procurado e a cidade do atendimento. A equipe orientará os próximos passos.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
     </main>
 
     <aside class="whatsapp-nudge" data-whatsapp-nudge aria-label="Ajuda para escolher um serviço" hidden>
       <button type="button" data-whatsapp-nudge-close aria-label="Fechar lembrete de contato">×</button>
-      <p>Não sabe qual serviço escolher?</p>
-      <strong>Conte brevemente o que sua família precisa. A equipe orienta o próximo passo.</strong>
+      <p>Ainda com dúvidas?</p>
+      <strong>Conte o que sua família precisa. A equipe ajuda a identificar o atendimento mais adequado.</strong>
       <a class="js-whatsapp" href="https://wa.me/5534988388116?text=Ol%C3%A1%2C%20preciso%20de%20ajuda%20para%20entender%20qual%20servi%C3%A7o%20%C3%A9%20mais%20adequado." target="_blank" rel="noopener noreferrer" data-section="contextual_nudge" data-service-interest="general">Pedir orientação <span aria-hidden="true">→</span></a>
     </aside>
 
