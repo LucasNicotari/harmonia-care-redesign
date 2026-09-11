@@ -114,41 +114,63 @@ if (carousel) {
 }
 
 const whatsappNudge = document.querySelector('[data-whatsapp-nudge]');
-if (whatsappNudge) {
-  const sessionKey = 'harmonia-help-dismissed';
-  let dismissed = false;
-  try { dismissed = sessionStorage.getItem(sessionKey) === 'true'; } catch {}
-  let readingTime = 0;
-  let shown = false;
-  let lastTick = performance.now();
-  const ticker = window.setInterval(() => {
-    const now = performance.now();
-    if (!document.hidden) readingTime += Math.min(now - lastTick, 1500);
-    lastTick = now;
-    const pageHeight = document.documentElement.scrollHeight - window.innerHeight;
-    const progress = pageHeight > 0 ? window.scrollY / pageHeight : 1;
-    const ready = (readingTime >= 90000 && progress >= .75) || readingTime >= 180000;
-    if (!ready || dismissed || shown || document.hidden || document.body.classList.contains('menu-open')) return;
-    shown = true;
-    whatsappNudge.hidden = false;
-    requestAnimationFrame(() => whatsappNudge.classList.add('is-visible'));
-    clearInterval(ticker);
-  }, 1000);
-  function dismissHelp() {
-    dismissed = true;
-    clearInterval(ticker);
-    try { sessionStorage.setItem(sessionKey, 'true'); } catch {}
-    const hadFocus = whatsappNudge.contains(document.activeElement);
-    whatsappNudge.classList.remove('is-visible');
-    whatsappNudge.hidden = true;
+const partnerPopup = document.querySelector('[data-partner-popup]');
+if (whatsappNudge && partnerPopup) {
+  // State belongs to this page load: refreshing starts a new visit.
+  const partnerDelay = 30000 + Math.random() * 20000;
+  let elapsed = 0, lastTick = performance.now(), bottomTime = 0;
+  let partnerShown = false, partnerVisibleTime = 0, longStayShown = false;
+  let bottomArmed = true, lastDismissed = -Infinity;
+  function closePopup(popup) {
+    const hadFocus = popup.contains(document.activeElement);
+    popup.classList.remove('is-visible');
+    popup.hidden = true;
+    lastDismissed = elapsed;
     if (hadFocus) document.querySelector('.floating-whatsapp')?.focus({ preventScroll: true });
   }
-  whatsappNudge.querySelector('[data-whatsapp-nudge-close]')?.addEventListener('click', dismissHelp);
-  whatsappNudge.querySelector('a')?.addEventListener('click', dismissHelp);
-  document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape' && !whatsappNudge.hidden) dismissHelp();
+  function showPopup(popup) {
+    popup.hidden = false;
+    requestAnimationFrame(() => popup.classList.add('is-visible'));
+  }
+  [whatsappNudge, partnerPopup].forEach(popup => {
+    popup.querySelector('button').addEventListener('click', () => closePopup(popup));
+    popup.querySelectorAll('a').forEach(link => link.addEventListener('click', () => closePopup(popup)));
   });
-  if (dismissed) clearInterval(ticker);
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape') {
+      [whatsappNudge, partnerPopup].filter(popup => !popup.hidden).forEach(closePopup);
+    }
+  });
+  window.setInterval(() => {
+    const now = performance.now();
+    const delta = Math.min(now - lastTick, 1500);
+    lastTick = now;
+    if (document.hidden) return;
+    elapsed += delta;
+    const scrollable = document.documentElement.scrollHeight - innerHeight;
+    const progress = scrollable > 0 ? scrollY / scrollable : 1;
+    bottomTime = progress >= .85 ? bottomTime + delta : 0;
+    if (progress < .7 && whatsappNudge.hidden) bottomArmed = true;
+    if (!partnerPopup.hidden) {
+      if (!partnerPopup.matches(':hover') && !partnerPopup.contains(document.activeElement)) partnerVisibleTime += delta;
+      if (partnerVisibleTime >= 18000) closePopup(partnerPopup);
+      return;
+    }
+    if (!whatsappNudge.hidden || document.body.classList.contains('menu-open')) return;
+    if (elapsed - lastDismissed < 8000) return;
+    if (!partnerShown && elapsed >= partnerDelay) {
+      partnerShown = true;
+      showPopup(partnerPopup);
+      return;
+    }
+    const endOfPage = bottomArmed && bottomTime >= 12000;
+    const longStay = !longStayShown && elapsed >= 120000;
+    if ((endOfPage || longStay) && elapsed - lastDismissed >= 45000) {
+      bottomArmed = false;
+      longStayShown = true;
+      showPopup(whatsappNudge);
+    }
+  }, 1000);
 }
 
 
