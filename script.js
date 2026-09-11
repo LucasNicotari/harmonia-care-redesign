@@ -188,37 +188,41 @@ if (testimonialCarousel) {
   const track = testimonialCarousel.querySelector('[data-testimonial-track]');
   const cards = [...testimonialCarousel.querySelectorAll('.testimonial-card')];
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  let groupIndex = 0;
+  let currentIndex = 0;
   let testimonialTimer;
 
-  function visibleCards() {
-    if (window.innerWidth <= 620) return 1;
-    if (window.innerWidth <= 820) return 2;
-    return 3;
-  }
-
-  function showTestimonialGroup(index) {
+  function showTestimonial(index) {
     if (!track || !cards.length) return;
-    const visible = visibleCards();
-    const groups = Math.ceil(cards.length / visible);
-    groupIndex = (index + groups) % groups;
-    const firstCard = cards[0];
-    const gap = parseFloat(getComputedStyle(track).gap) || 0;
-    const distance = (firstCard.getBoundingClientRect().width + gap) * visible * groupIndex;
+    currentIndex = (index + cards.length) % cards.length;
+    cards.forEach((card, cardIndex) => {
+      const isActive = cardIndex === currentIndex;
+      card.classList.toggle('is-active', isActive);
+      card.setAttribute('aria-hidden', String(!isActive));
+      card.querySelectorAll('a').forEach((link) => {
+        if (isActive) link.removeAttribute('tabindex');
+        else link.setAttribute('tabindex', '-1');
+      });
+    });
+
+    const activeCard = cards[currentIndex];
+    const distance = activeCard.offsetLeft + (activeCard.offsetWidth / 2) - (testimonialCarousel.clientWidth / 2);
     const maxDistance = Math.max(0, track.scrollWidth - testimonialCarousel.clientWidth);
-    track.style.transform = `translateX(-${Math.min(distance, maxDistance)}px)`;
+    track.style.transform = `translateX(-${Math.max(0, Math.min(distance, maxDistance))}px)`;
   }
 
   function startTestimonials() {
     window.clearInterval(testimonialTimer);
-    if (!reduceMotion && !document.hidden && cards.length > visibleCards()) {
-      testimonialTimer = window.setInterval(() => showTestimonialGroup(groupIndex + 1), 15000);
+    if (!reduceMotion && !document.hidden && cards.length > 1) {
+      testimonialTimer = window.setInterval(() => showTestimonial(currentIndex + 1), 15000);
     }
   }
 
+  showTestimonial(0);
   testimonialCarousel.addEventListener('mouseenter', () => window.clearInterval(testimonialTimer));
   testimonialCarousel.addEventListener('mouseleave', startTestimonials);
-  window.addEventListener('resize', () => { groupIndex = 0; showTestimonialGroup(0); startTestimonials(); });
+  testimonialCarousel.addEventListener('focusin', () => window.clearInterval(testimonialTimer));
+  testimonialCarousel.addEventListener('focusout', startTestimonials);
+  window.addEventListener('resize', () => { showTestimonial(currentIndex); startTestimonials(); });
   document.addEventListener('visibilitychange', startTestimonials);
   startTestimonials();
 }
