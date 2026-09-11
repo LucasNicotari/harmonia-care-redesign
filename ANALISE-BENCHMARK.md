@@ -45,12 +45,11 @@
 - Arquitetura HTML/CSS/JS puro, sem framework, biblioteca visual ou gerenciador de estado.
 - Fontes e imagens críticas locais; primeira imagem do hero em WebP de 1.200 px e aproximadamente 43 KB.
 - Hero roxo alinhado à identidade oficial, com cinco cenas de idosos, cuidado infantil, enfermagem, reabilitação e acolhimento familiar.
-- Carrossel em JavaScript puro, pausável, controlável por teclado, com rotação de 5,5 segundos, indicador visual de progresso e respeito a `prefers-reduced-motion`.
-- Oito serviços apresentados individualmente em um trilho compacto: atendimento domiciliar, enfermagem domiciliar, técnico de enfermagem, cuidadores, fonoaudiologia, fisioterapia, nutrição e babysitter.
-- Cada serviço tem título, descrição curta e “Saiba mais”. O trilho mostra quatro cards no desktop, adapta a quantidade visível ao viewport e só avança automaticamente quando está em tela.
+- Carrossel em JavaScript puro, com rotação automática de 5,5 segundos, sem controles visíveis e com respeito a `prefers-reduced-motion`.
+- Oito serviços apresentados individualmente em grade estática: atendimento domiciliar, enfermagem domiciliar, cuidadores, fonoaudiologia, fisioterapia, nutrição, terapia ocupacional e babysitter.
+- Cada serviço tem título, descrição curta e “Saiba mais”, sem carrossel ou controles para acessar o conteúdo.
 - Parceiros atuais posicionados depois do hero em cards de alto contraste, com descrições curtas.
 - Popup de parceiros não modal, dispensável pelo botão “X” e ocultado pelo restante da sessão após o fechamento.
-- Convênios não exibidos enquanto a lista vigente não for confirmada.
 - Nenhuma avaliação, nota, estatística, certificação ou disponibilidade foi criada.
 - Mensagens de WhatsApp segmentadas sem dados de saúde.
 - CTA textual do cabeçalho substituído por um ícone flutuante de WhatsApp disponível durante toda a rolagem.
@@ -64,14 +63,13 @@
 
 - O hero concentra proposta de valor e um único próximo passo: conhecer os serviços. O contato permanece disponível pelo ícone flutuante, sem competir com a leitura inicial.
 - “Como funciona” mantém somente a explicação em três etapas; o botão genérico de contato foi removido.
-- Convênios conserva CTA próprio porque a intenção é específica e exige consulta de cobertura.
 - O lembrete de WhatsApp é contextual, não modal e transitório. Só aparece após sinal de interesse ou tempo de leitura, fecha automaticamente e não disputa atenção com o popup de parceiros.
-- A hierarquia atual segue: proposta de valor, parceiros, serviços, mentalidade da marca, funcionamento, convênios e rodapé.
-- Após a simplificação, a home mede 3.670 px no desktop de 1.440 px, redução estimada de 32,0% sobre a referência pública de 5.400 px.
+- A hierarquia atual segue: proposta de valor, parceiros, serviços, mentalidade da marca, funcionamento, perguntas frequentes e rodapé.
+- Após a simplificação, a home mede 3.687 px no desktop de 1.440 px. A comparação definitiva exige baseline equivalente do WordPress em staging.
 
 ## Comparação específica com a Soma Neuromodulação
 
-- A Soma usa um hero em carrossel com fundo roxo, composição fotográfica em camadas e setas laterais. A Harmonia preserva o impacto, mas utiliza uma composição mais limpa, texto comercial estável, cinco cenas inclusivas e uma barra de progresso que torna a rotação automática evidente.
+- A Soma usa um hero em carrossel com fundo roxo e composição fotográfica em camadas. A Harmonia preserva o impacto, mas utiliza uma composição mais limpa, texto comercial estável e cinco cenas inclusivas em rotação automática.
 - A seção de tratamentos da Soma apresenta cinco cards simultâneos com fotografia, descrição extensa e botão. O padrão comunica variedade, porém cria cards muito altos e leitura densa.
 - Na medição visual deste ambiente, a home da Soma apresentou aproximadamente 7.136 px de altura em 1.440 px. Este número é apenas comparativo e pode variar conforme conteúdo dinâmico e viewport.
 - A solução da Harmonia reduz o conteúdo de cada card para aproximadamente duas ou três linhas, dispensa oito novas fotografias e mantém todos os serviços em um trilho único. Isso reduz peso, repetição e altura sem esconder a oferta.
@@ -80,9 +78,9 @@
 ## Pendências de alto impacto
 
 1. Confirmar CNPJ, endereço, horário comercial, responsável técnico e registros profissionais antes de estruturar dados `Organization`/`LocalBusiness`.
-2. Confirmar parceiros, convênios, cidades e disponibilidade operacional.
+2. Confirmar parceiros, cidades e disponibilidade operacional.
 3. Obter depoimentos reais com autorização e origem verificável.
-4. Confirmar processo de seleção, supervisão e cobertura para transformar promessas institucionais em prova concreta.
+4. Confirmar processo de seleção, supervisão e área de atendimento para transformar promessas institucionais em prova concreta.
 5. Definir política de privacidade e consentimento antes de ativar cookies não essenciais, GTM ou mídia paga.
 
 ## Boas práticas adotadas

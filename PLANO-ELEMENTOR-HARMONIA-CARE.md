@@ -36,7 +36,7 @@ Antes de editar, obter:
 - Lista e versões de WordPress, Elementor, Elementor Pro, tema e plugins que afetam cache, SEO, formulário, imagens e GTM.
 - Identificação do container do Google Tag Manager e acesso ao modo Preview; não incluir o ID ou credenciais neste repositório.
 - Configuração atual de cache/CDN e confirmação de que o encurtador `harmoniacare.short.gy` pertence à empresa.
-- Lista final de parceiros e convênios vigentes.
+- Lista final de parceiros vigentes.
 - Autorização documentada para cada depoimento mantido.
 
 Não atualizar WordPress, tema ou plugins como parte deste trabalho.
@@ -52,7 +52,6 @@ Parceiros
 Serviços (3 cards)
 Como funciona (3 passos)
 Prova social (condicional)
-Convênios (condicional até confirmação)
 CTA final
 Footer
 ```
@@ -66,7 +65,7 @@ Footer
 Conteúdo:
 
 1. Logotipo atual, com texto alternativo `Harmonia Care` e largura máxima aproximada de 160 px.
-2. Menu: `Serviços`, `Como funciona`, `Parceiros`, `Convênios`.
+2. Menu: `Serviços`, `Como funciona`, `Parceiros`.
 3. Botão `Falar no WhatsApp`.
 
 Links internos:
@@ -74,7 +73,6 @@ Links internos:
 - Serviços → `#servicos`
 - Como funciona → `#como-funciona`
 - Parceiros → `#parceiros`
-- Convênios → `#convenios`
 
 No mobile, usar menu acessível com nome `Abrir menu`, estado `aria-expanded` correto e fechamento por `Esc`. Só manter header fixo se a altura final não exceder 72 px e não cobrir o destino das âncoras.
 
@@ -91,7 +89,6 @@ Texto final:
 - Complemento: **Enfermagem, cuidadores, fisioterapia, fonoaudiologia, nutrição e babysitter, com atendimento humano e personalizado.**
 - CTA principal: **Falar com a equipe agora**
 - CTA secundário: **Conhecer os serviços** → `#servicos`
-- Sinal de confiança: **Atendimento particular e por convênios.** Exibir somente após confirmação de que continua verdadeiro.
 
 Usar a imagem humana atual do hero se licença, resolução e enquadramento forem adequados. Exportar em WebP/AVIF com fallback, `width` e `height`, `object-fit: cover`, sem lazy loading e com `fetchpriority="high"` apenas se ela for o elemento LCP. O texto do hero contém menos de 65 palavras.
 
@@ -152,19 +149,7 @@ Não solicitar diagnóstico, medicação, laudo ou qualquer dado médico na mens
 - Não criar nomes, fotos, notas, avaliações, cargos ou histórias clínicas.
 - Sem carrossel automático; um a três depoimentos curtos em grid.
 
-### 3.7 Convênios
-
-**Âncora:** `convenios`  
-**Classes:** `hc-section hc-insurance`  
-**Regra de publicação:** lista pendente de confirmação.
-
-- H2: **Atendimento particular e por convênios**
-- Texto: **Consulte a equipe para verificar cobertura e condições do atendimento.**
-- Grid estático de logos, com dimensões consistentes e sem rotação automática.
-- CTA: **Consultar cobertura**.
-- Até a confirmação, usar somente no editor o marcador `[PENDENTE — CONFIRMAR CONVÊNIOS VIGENTES]`; não expor logos não confirmados no staging compartilhado.
-
-### 3.8 CTA final
+### 3.7 CTA final
 
 **Classes:** `hc-final-cta`  
 **Layout:** bloco compacto, centralizado, sem imagem pesada de fundo.
@@ -173,7 +158,7 @@ Não solicitar diagnóstico, medicação, laudo ou qualquer dado médico na mens
 - Texto: **Fale com a equipe e explique o tipo de atendimento que você procura.**
 - Botão: **Conversar no WhatsApp**.
 
-### 3.9 Footer
+### 3.8 Footer
 
 Manter logotipo, telefone formatado, localidades confirmadas, links institucionais e política de privacidade. Remover `Desenvolvido pelo Elementor` se não houver obrigação contratual. Não adicionar redes sociais, endereço, e-mail ou registro profissional sem confirmação.
 
@@ -285,7 +270,6 @@ Usar o endpoint `wa.me`, o número `5534988388116` e o parâmetro `text` em UTF-
 - Hero/header/CTA final: `https://wa.me/5534988388116?text=Ol%C3%A1%2C%20gostaria%20de%20entender%20qual%20atendimento%20%C3%A9%20mais%20adequado%20para%20minha%20fam%C3%ADlia.`
 - Cuidadores: `https://wa.me/5534988388116?text=Ol%C3%A1%2C%20gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20cuidadores.`
 - Babysitter: `https://wa.me/5534988388116?text=Ol%C3%A1%2C%20gostaria%20de%20consultar%20disponibilidade%20do%20servi%C3%A7o%20de%20babysitter.`
-- Convênios: `https://wa.me/5534988388116?text=Ol%C3%A1%2C%20gostaria%20de%20consultar%20cobertura%20por%20conv%C3%AAnio.`
 
 Adicionar a classe `js-whatsapp` e os atributos `data-section` e `data-service-interest` em cada botão. Valores permitidos:
 
@@ -295,7 +279,6 @@ Adicionar a classe `js-whatsapp` e os atributos `data-section` e `data-service-i
 | Hero | `hero` | `general` |
 | Card Cuidadores | `services` | `cuidadores` |
 | Card Babysitter | `services` | `babysitter` |
-| Convênios | `insurance` | `convenios` |
 | CTA final | `final_cta` | `general` |
 
 Configurar no GTM um trigger de clique limitado a `.js-whatsapp` e enviar:
@@ -376,7 +359,7 @@ Se uma meta não for atingida, informar o valor real, evidência, causa comprova
 6. Configurar links segmentados e eventos do GTM sem publicar o container.
 7. Validar conteúdo, responsividade, acessibilidade, performance e regressão.
 8. Enviar URL protegida e comparação antes/depois ao cliente.
-9. Obter aprovação escrita da home, parceiros, convênios e depoimentos.
+9. Obter aprovação escrita da home, parceiros e depoimentos.
 10. Gerar nova exportação/backup e preparar janela de publicação com rollback.
 11. Publicar somente após autorização explícita; limpar cache de forma controlada e executar smoke test.
 
@@ -391,9 +374,9 @@ Rollback: restaurar o template exportado anterior e limpar somente os caches rel
 
 ### Para publicar
 
-- Confirmação da lista de parceiros e convênios.
+- Confirmação da lista de parceiros.
 - Autorização dos depoimentos.
-- Confirmação de localidades e da frase “Atendimento particular e por convênios”.
+- Confirmação das localidades atendidas.
 - Aprovação formal do cliente e plano de rollback validado.
 
 Babysitter está aprovado para inclusão, sempre com “mediante disponibilidade e alinhamento prévio com a família”. Textos, marca e imagens públicas atuais estão autorizados para reaproveitamento, sujeitos à validação técnica de qualidade e acessibilidade.
