@@ -59,7 +59,7 @@ document.querySelectorAll('.js-instagram').forEach((link) => {
 
 const googleReviewsLink = document.querySelector('#testimonials-google-link');
 if (googleReviewsLink) {
-  document.querySelectorAll('.testimonial-card__more').forEach((link) => {
+  document.querySelectorAll('.testimonial-card__more, .testimonials__review-link').forEach((link) => {
     link.href = googleReviewsLink.href;
     link.target = '_blank';
     link.rel = 'noopener noreferrer';
