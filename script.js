@@ -46,6 +46,17 @@ document.querySelectorAll('.js-whatsapp').forEach((link) => {
   });
 });
 
+document.querySelectorAll('.js-instagram').forEach((link) => {
+  link.addEventListener('click', () => {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: 'instagram_click',
+      section: link.dataset.section || 'unknown',
+      profile: 'harmoniacare.ltda',
+    });
+  });
+});
+
 const year = document.querySelector('[data-current-year]');
 if (year) year.textContent = String(new Date().getFullYear());
 

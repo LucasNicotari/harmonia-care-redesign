@@ -403,6 +403,9 @@ p { margin-bottom: 20px; }
 .footer__grid { display: grid; grid-template-columns: 1.5fr .65fr 1fr; gap: 70px; }
 .footer__brand img { width: 156px; height: auto; margin-bottom: 18px; filter: brightness(0) invert(1); }
 .footer__brand p { max-width: 390px; }
+.footer-social { display: inline-flex; align-items: center; gap: 9px; min-height: 40px; padding: 8px 12px 8px 9px; color: #fff; background: rgba(114,39,219,.18); border: 1px solid rgba(205,176,244,.28); border-radius: 999px; font-size: .76rem; font-weight: 600; line-height: 1; text-decoration: none; transition: color 160ms ease, background 160ms ease, border-color 160ms ease, transform 160ms ease; }
+.footer-social svg { width: 22px; height: 22px; fill: currentColor; }
+.footer-social:hover { color: #fff; background: rgba(114,39,219,.48); border-color: rgba(226,207,251,.7); transform: translateY(-2px); }
 .site-footer h2 { margin-bottom: 14px; color: #fff; font-family: "Montserrat", sans-serif; font-size: .84rem; letter-spacing: .08em; text-transform: uppercase; }
 .site-footer ul { margin: 0; padding: 0; list-style: none; }
 .site-footer li + li { margin-top: 7px; }
