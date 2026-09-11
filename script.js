@@ -202,6 +202,36 @@ if (testimonialCarousel) {
     slides = [...track.querySelectorAll('.testimonial-card')];
   }
 
+  // Keep the complete source in memory; resizing never truncates an already cut excerpt.
+  const reviewContent = slides.map(slide => {
+    const quote = slide.querySelector('blockquote');
+    return { quote, text: quote.querySelector('.testimonial-text'), tail: quote.querySelector('.testimonial-tail'), link: quote.querySelector('a'), words: quote.querySelector('.testimonial-text').textContent.match(/\S+/gu) || [] };
+  });
+  function fitReviews() {
+    reviewContent.forEach(({ quote, text, tail, link, words }) => {
+      const limit = parseFloat(getComputedStyle(quote).lineHeight) * 4;
+      function render(count) {
+        const truncated = count < words.length;
+        const lastWord = words[count - 1] || '';
+        text.textContent = words.slice(0, Math.max(0, count - 1)).join(' ') + (count > 1 ? ' ' : '');
+        // Last word, ellipsis and link form one unbreakable continuation.
+        tail.replaceChildren(document.createTextNode((truncated ? lastWord.replace(/[.,;:!?…]+$/u, '') + '…' : lastWord) + '\u00a0'), link);
+        quote.dataset.truncated = String(truncated);
+      }
+      render(words.length);
+      if (quote.getBoundingClientRect().height <= limit + 1) return;
+      let low = 1, high = words.length - 1, best = 1;
+      while (low <= high) {
+        const mid = Math.floor((low + high) / 2);
+        render(mid);
+        if (quote.getBoundingClientRect().height <= limit + 1 && tail.getBoundingClientRect().width <= quote.clientWidth) { best = mid; low = mid + 1; }
+        else high = mid - 1;
+      }
+      render(best);
+    });
+  }
+  fitReviews();
+
   function positionTrack(animate = true) {
     if (!track || !slides.length) return;
     track.classList.toggle('is-jumping', !animate);
@@ -251,7 +281,8 @@ if (testimonialCarousel) {
   testimonialCarousel.addEventListener('mouseleave', startTestimonials);
   testimonialCarousel.addEventListener('focusin', () => window.clearInterval(testimonialTimer));
   testimonialCarousel.addEventListener('focusout', startTestimonials);
-  window.addEventListener('resize', () => { positionTrack(false); startTestimonials(); });
+  window.addEventListener('resize', () => { fitReviews(); positionTrack(false); startTestimonials(); });
+  document.fonts?.ready.then(() => { fitReviews(); positionTrack(false); });
   document.addEventListener('visibilitychange', startTestimonials);
   startTestimonials();
 }

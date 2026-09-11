@@ -37,6 +37,13 @@ Depois acesse `http://localhost:8000`.
 
 ## Limites
 
+### Texto das avaliações
+
+- Nove textos completos foram transcritos dos prints enviados pelo responsável: Larissa Carneiro, Luan Farley, Jaqueline de Souza, Denys Veiga, Alberto Nehmad, Raimunda Brenda Dias Pereira, Diego Moraes, Rute Faria e Valeria Lopes. As palavras dos clientes foram mantidas, inclusive construções informais. O HTML contém o conteúdo integral disponível; o JavaScript mede e apresenta até quatro linhas sem alterar a fonte.
+- Para Ronie Ferreira, Weslley Barbosa Dias e Bibiane Fernandes, só há o texto já cadastrado no projeto. A integralidade desses três relatos não está confirmada; não foram completados ou reescritos. Marcados no HTML como `data-review-source="existing-excerpt"`.
+- Nenhum link individual de avaliação está disponível. Todos os links inline “mais” abrem o endereço real do perfil da Harmonia Care no Google Maps, já existente no projeto, em nova aba. Não levam ao formulário de escrever uma avaliação.
+- O corte é recalculado após carregar as fontes e redimensionar a tela. A última palavra, as reticências (somente se houver corte) e “mais” ficam unidos para evitar um link órfão. Em textos completos, “mais” permanece após um pequeno espaço, sem acrescentar reticências.
+
 - Os parceiros devem ser confirmados antes de uma publicação real.
 - Os depoimentos são trechos de avaliações públicas fornecidas e verificadas durante a construção do protótipo; nenhum relato foi inventado.
 - O protótipo não contém backend, WordPress, Elementor ou banco de dados.
