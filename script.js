@@ -188,41 +188,78 @@ if (testimonialCarousel) {
   const track = testimonialCarousel.querySelector('[data-testimonial-track]');
   const cards = [...testimonialCarousel.querySelectorAll('.testimonial-card')];
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const edgeClones = Math.min(2, cards.length);
+  let slides = cards;
   let currentIndex = 0;
+  let virtualIndex = edgeClones;
   let testimonialTimer;
 
-  function showTestimonial(index) {
-    if (!track || !cards.length) return;
-    currentIndex = (index + cards.length) % cards.length;
-    cards.forEach((card, cardIndex) => {
-      const isActive = cardIndex === currentIndex;
-      card.classList.toggle('is-active', isActive);
-      card.setAttribute('aria-hidden', String(!isActive));
-      card.querySelectorAll('a').forEach((link) => {
-        if (isActive) link.removeAttribute('tabindex');
-        else link.setAttribute('tabindex', '-1');
-      });
-    });
+  function createEdgeClone(card) {
+    const clone = card.cloneNode(true);
+    clone.dataset.testimonialClone = '';
+    clone.setAttribute('aria-hidden', 'true');
+    clone.querySelectorAll('a').forEach((link) => link.setAttribute('tabindex', '-1'));
+    return clone;
+  }
 
-    const activeCard = cards[currentIndex];
+  if (track && cards.length > 2) {
+    const leadingClones = cards.slice(-edgeClones).map(createEdgeClone);
+    const trailingClones = cards.slice(0, edgeClones).map(createEdgeClone);
+    track.prepend(...leadingClones);
+    track.append(...trailingClones);
+    slides = [...track.querySelectorAll('.testimonial-card')];
+  }
+
+  function positionTrack(animate = true) {
+    if (!track || !slides.length) return;
+    track.classList.toggle('is-jumping', !animate);
+    const activeCard = slides[virtualIndex];
     const distance = activeCard.offsetLeft + (activeCard.offsetWidth / 2) - (testimonialCarousel.clientWidth / 2);
     const maxDistance = Math.max(0, track.scrollWidth - testimonialCarousel.clientWidth);
     track.style.transform = `translateX(-${Math.max(0, Math.min(distance, maxDistance))}px)`;
+    if (!animate) requestAnimationFrame(() => track.classList.remove('is-jumping'));
+  }
+
+  function updateTestimonialState(animate = true) {
+    slides.forEach((slide, slideIndex) => {
+      const isVisualActive = slideIndex === virtualIndex;
+      const isLogicalActive = !slide.hasAttribute('data-testimonial-clone') && slide === cards[currentIndex];
+      slide.classList.toggle('is-active', isVisualActive);
+      slide.setAttribute('aria-hidden', String(!isLogicalActive));
+      slide.querySelectorAll('a').forEach((link) => {
+        if (isLogicalActive) link.removeAttribute('tabindex');
+        else link.setAttribute('tabindex', '-1');
+      });
+    });
+    positionTrack(animate);
+  }
+
+  function showNextTestimonial() {
+    currentIndex = (currentIndex + 1) % cards.length;
+    virtualIndex += 1;
+    updateTestimonialState(true);
   }
 
   function startTestimonials() {
     window.clearInterval(testimonialTimer);
     if (!reduceMotion && !document.hidden && cards.length > 1) {
-      testimonialTimer = window.setInterval(() => showTestimonial(currentIndex + 1), 15000);
+      testimonialTimer = window.setInterval(showNextTestimonial, 15000);
     }
   }
 
-  showTestimonial(0);
+  updateTestimonialState(false);
+  track?.addEventListener('transitionend', (event) => {
+    if (event.propertyName !== 'transform') return;
+    if (virtualIndex >= cards.length + edgeClones) {
+      virtualIndex = edgeClones;
+      updateTestimonialState(false);
+    }
+  });
   testimonialCarousel.addEventListener('mouseenter', () => window.clearInterval(testimonialTimer));
   testimonialCarousel.addEventListener('mouseleave', startTestimonials);
   testimonialCarousel.addEventListener('focusin', () => window.clearInterval(testimonialTimer));
   testimonialCarousel.addEventListener('focusout', startTestimonials);
-  window.addEventListener('resize', () => { showTestimonial(currentIndex); startTestimonials(); });
+  window.addEventListener('resize', () => { positionTrack(false); startTestimonials(); });
   document.addEventListener('visibilitychange', startTestimonials);
   startTestimonials();
 }
