@@ -20,7 +20,7 @@
   --brand-soft: #f3ecff;
   --action: #426c30;
   --action-dark: #315222;
-  --contact: #2f3b59;
+  --contact: #d7b8fa;
   --ink: #222945;
   --muted: #626982;
   --surface: #ffffff;
@@ -638,7 +638,7 @@ p { margin-bottom: 20px; }
 .testimonial-card footer strong, .testimonial-card footer span { display: block; }
 .testimonial-card footer strong { font-size: 14px; font-weight: 600; line-height: 1.5; }
 .testimonial-card footer span { margin-top: 3px; color: #626b80; font-size: 12px; line-height: 1.5; }
-.testimonials__review-invite { display: flex; align-items: center; justify-content: space-between; gap: 28px; margin-top: 22px; padding-top: 18px; border-top: 1px solid #ece4f2; }
+.testimonials__review-invite { display: flex; align-items: flex-start; flex-direction: column; gap: 8px; margin-top: 22px; padding-top: 18px; border-top: 1px solid #ece4f2; }
 .testimonials__review-invite p { max-width: 760px; margin: 0; color: #72788b; font-size: .74rem; line-height: 1.55; }
 .testimonials__review-link { flex: 0 0 auto; color: var(--brand-dark); font-size: .74rem; font-weight: 700; text-decoration: none; }
 .testimonials__review-link:hover, .testimonials__review-link:focus-visible { color: var(--brand); text-decoration: underline; text-underline-offset: 3px; }
@@ -651,7 +651,9 @@ p { margin-bottom: 20px; }
 .floating-whatsapp:hover, .floating-whatsapp:focus-visible { background: #1daa52; transform: translateY(-3px); }
 .floating-whatsapp:active { background: #168842; }
 .floating-whatsapp svg { width: 25px; height: 25px; fill: currentColor; }
-.whatsapp-nudge a { color: var(--contact); }
+.whatsapp-nudge a { color: var(--brand-dark); }
+.button.js-whatsapp, .detail-cta.js-whatsapp, .hero .button--secondary.js-whatsapp, .floating-whatsapp { color: #35115f; background: var(--contact); border-color: #cba2f4; box-shadow: 0 9px 24px rgba(111,43,213,.22); }
+.button.js-whatsapp:hover, .button.js-whatsapp:focus-visible, .detail-cta.js-whatsapp:hover, .detail-cta.js-whatsapp:focus-visible, .hero .button--secondary.js-whatsapp:hover, .hero .button--secondary.js-whatsapp:focus-visible, .floating-whatsapp:hover, .floating-whatsapp:focus-visible { color: #fff; background: #17843d; border-color: #17843d; }
 .whatsapp-nudge a:hover, .whatsapp-nudge a:focus-visible { color: var(--action); }
 .whatsapp-nudge a:active { color: var(--action-dark); }
 .specialty-hero__grid { display: grid; grid-template-columns: 1.18fr .82fr; align-items: end; gap: 80px; }
