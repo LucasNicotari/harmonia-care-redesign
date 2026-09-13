@@ -2,7 +2,7 @@
 
 Protótipo navegável da proposta de otimização da home. É uma demonstração front-end independente e não altera o WordPress publicado.
 
-A versão atual apresenta a Home com fotografias em tela ampla, cabeçalho fixo que muda de transparente para branco durante a rolagem, degradê lateral roxo e carrossel automático com cinco cenas de cuidado, sem controles visíveis. Os parceiros ficam em um painel compacto na abertura. A proposta inclui ainda uma grade estática com oito serviços, avaliações públicas, perguntas frequentes, contato contextual e páginas internas para conteúdo institucional, especialidades, serviços e cadastro profissional.
+A versão atual apresenta a Home com fotografias em tela ampla, cabeçalho fixo que muda de transparente para branco durante a rolagem, degradê lateral roxo e carrossel automático com cinco cenas de cuidado, sem controles visíveis. Os parceiros ficam em um painel compacto na abertura. A proposta inclui ainda uma grade estática com oito serviços, avaliações públicas, perguntas frequentes, contato contextual e páginas internas para conteúdo institucional, especialidades e serviços.
 
 ## Executar
 
@@ -28,7 +28,6 @@ Depois acesse `http://localhost:8000`.
 - `servicos.html`: página local detalhada de serviços e fluxo de contratação.
 - `sobre.html`: página institucional aprimorada, com propósito, princípios expansíveis, prática de cuidado e parceiros.
 - `especialidades.html`: orientação por necessidade, conectando situações de cuidado aos serviços correspondentes.
-- `trabalhe-conosco.html`: página de cadastro de currículos e apresentação das áreas profissionais.
 - `styles.css`: identidade visual e responsividade.
 - `script.js`: menu acessível, carrosséis automáticos, popup e eventos de WhatsApp.
 - `assets/images/`: assets públicos autorizados da Harmonia Care.
