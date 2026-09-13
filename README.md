@@ -68,10 +68,10 @@ Depois acesse `http://localhost:8000`.
 - A página de serviços possui resumo operacional no primeiro bloco, oito explicações detalhadas, processo em quatro etapas e CTAs de WhatsApp segmentados.
 - Contato geral do WhatsApp posicionado no cabeçalho como CTA textual e rastreado por página; um atalho flutuante discreto permanece disponível.
 - O contato permanece disponível no cabeçalho, nos serviços e em um lembrete contextual transitório.
-- A orientação compacta aparece após 12 segundos nos últimos 15% da página ou 120 segundos de permanência com a aba visível. Pode reaparecer ao subir acima de 70% e voltar ao final, respeitando 45 segundos após fechar. O popup fica aberto até fechar ou clicar no contato.
-- O popup de parceiros aparece uma vez por carregamento, após 30 a 50 segundos de tempo ativo. Contém links diretos para os sites dos parceiros e fecha após 18 segundos sem interação. Atualizar a página reinicia a exibição. Os dois popups funcionam nas cinco páginas e não se sobrepõem.
+- A orientação compacta aparece uma única vez na página de entrada, após 12 segundos nos últimos 15% da página ou 120 segundos de permanência com a aba visível. Respeita 45 segundos após o fechamento de outro popup e permanece aberta até fechar ou clicar no contato.
+- O popup de parceiros aparece uma vez na página de entrada, após 30 a 50 segundos de tempo ativo. Contém links diretos para os sites dos parceiros e fecha após 18 segundos sem interação. Um marcador em sessionStorage impede novas exibições ao navegar entre páginas na mesma aba. Atualizar a página libera uma nova sequência; voltar pelo histórico não. Os dois popups não se sobrepõem.
 - Manifesto “Nossa forma de cuidar” incluído com três princípios derivados do conteúdo institucional público: pessoa antes do padrão, técnica com presença humana e família integrada.
 - Representatividade visual ampliada com pessoas negras e asiáticas, usando exclusivamente imagens já publicadas no acervo autorizado da Harmonia Care.
-- Popups validados com fechamento por “X” ou Escape, reinício ao atualizar a página e repetição da orientação ao retornar ao final.
+- Popups validados com fechamento por “X” ou Escape, bloqueio de repetição ao retornar ao final e ao navegar internamente, e reinício ao atualizar a página.
 
 Os relatórios e screenshots técnicos estão em `.preview/` e não representam métricas do servidor WordPress de produção.
