@@ -774,17 +774,27 @@ p { margin-bottom: 20px; }
 .hero .hero__grid { min-height: 0; flex: none; }
 .hero .hero__content { padding: 0; }
 .home-metrics { padding: 12px 0 22px; background: linear-gradient(#faf7fe, #fff); }
-.home-metrics dl { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin: 0; padding: 30px 0; border-top: 1px solid #e8ddf3; border-bottom: 1px solid #e8ddf3; }
+.home-metrics dl { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); margin: 0; padding: 30px 0; border-top: 1px solid #e8ddf3; border-bottom: 1px solid #e8ddf3; }
 .home-metrics dl > div { display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 0 18px; text-align: center; }
 .home-metrics dl > div + div { border-left: 1px solid #e8ddf3; }
 .home-metrics dd { order: -1; margin: 0; color: var(--brand-dark); font-family: "Varela Round", sans-serif; font-size: clamp(2rem, 2.7vw, 2.6rem); line-height: 1.1; }
 .home-metrics dt { color: var(--muted); font-size: .875rem; line-height: 1.5; }
+.home-metrics dl > .home-metrics__detail { justify-content: center; }
+.home-metrics .home-metrics__detail dt { color: var(--brand-dark); font-size: 1rem; font-weight: 600; line-height: 1.35; }
+.home-metrics .home-metrics__detail dd { order: 0; color: var(--muted); font-family: "Montserrat", sans-serif; font-size: .82rem; line-height: 1.55; }
 .home-metrics + .home-about { padding-top: 42px; }
+@media (min-width: 621px) and (max-width: 900px) {
+  .home-metrics dl { grid-template-columns: repeat(6, minmax(0, 1fr)); row-gap: 26px; }
+  .home-metrics dl > div { grid-column: span 2; }
+  .home-metrics dl > .home-metrics__detail { grid-column: span 3; }
+  .home-metrics dl > div:nth-child(4) { border-left: 0; }
+}
 @media (max-width: 620px) {
   .hero { gap: 22px; padding: 104px 0 28px; }
   .hero .hero__grid { min-height: auto; }
   .home-metrics dl { grid-template-columns: 1fr 1fr; row-gap: 24px; padding: 24px 0; }
   .home-metrics dl > div:nth-child(3) { border-left: 0; }
+  .home-metrics dl > div:last-child { grid-column: 1 / -1; border-left: 0; padding-top: 20px; border-top: 1px solid #e8ddf3; }
   .home-metrics dt { font-size: .8rem; }
   .home-metrics + .home-about { padding-top: 26px; }
 }
