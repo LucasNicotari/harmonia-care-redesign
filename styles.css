@@ -122,8 +122,8 @@ p { margin-bottom: 20px; }
 .hero-carousel__viewport { position: absolute; inset: 0; overflow: hidden; background: #321055; border: 0; border-radius: 0; box-shadow: none; }
 .hero-slide { position: absolute; inset: 0; margin: 0; visibility: hidden; opacity: 0; transition: opacity 650ms ease, visibility 0s linear 650ms; }
 .hero-slide.is-active { z-index: 1; visibility: visible; opacity: 1; transition-delay: 0s; }
-.hero-slide img { width: 100%; height: 100%; object-fit: cover; filter: saturate(.9) contrast(1.02); transform: scale(1.015); transition: transform 7s ease; }
-.hero-slide.is-active img { transform: scale(1.055); }
+.hero-slide img { width: 100%; height: 100%; object-fit: cover; }
+.hero-slide.is-active img { transform: none; }
 .hero-slide:first-child img { object-position: 67% center; }
 .hero-slide:nth-child(2) img { object-position: 62% center; }
 .hero-slide:nth-child(3) img { object-position: 72% center; }
@@ -770,6 +770,20 @@ p { margin-bottom: 20px; }
 }
 
 /* Depoimentos e parceiros */
+.hero .hero__grid { min-height: calc(100svh - 146px); }
+.hero .hero__content { padding-bottom: 32px; }
+.hero-metrics { position: relative; z-index: 4; padding-bottom: 26px; }
+.hero-metrics dl { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin: 0; padding: 20px 0; border-top: 1px solid rgba(255,255,255,.25); border-bottom: 1px solid rgba(255,255,255,.18); background: rgba(39,12,64,.18); }
+.hero-metrics dl > div { display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 0 18px; text-align: center; }
+.hero-metrics dl > div + div { border-left: 1px solid rgba(255,255,255,.18); }
+.hero-metrics dd { order: -1; margin: 0; color: #fff; font-size: clamp(1.65rem, 2.2vw, 2rem); font-weight: 700; line-height: 1.1; }
+.hero-metrics dt { color: #eee3fc; font-size: .82rem; line-height: 1.5; }
+@media (max-width: 620px) {
+  .hero .hero__grid { min-height: auto; }
+  .hero-metrics dl { grid-template-columns: 1fr 1fr; row-gap: 22px; }
+  .hero-metrics dl > div:nth-child(3) { border-left: 0; }
+  .hero-metrics dt { font-size: .75rem; }
+}
 .site-footer address { margin: 0 0 10px; color: #d5d8e6; font-style: normal; line-height: 1.6; }
 .footer__contact-line { display: flex; align-items: center; justify-content: space-between; gap: 28px; margin-top: 32px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,.11); }
 .footer__contact-line address { margin: 0; }
