@@ -280,7 +280,7 @@ if (testimonialCarousel) {
   function startTestimonials() {
     window.clearInterval(testimonialTimer);
     if (!reduceMotion && !document.hidden && cards.length > 1) {
-      testimonialTimer = window.setInterval(showNextTestimonial, 7000);
+      testimonialTimer = window.setInterval(showNextTestimonial, 5000);
     }
   }
 
