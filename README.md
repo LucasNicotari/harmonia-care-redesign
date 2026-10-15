@@ -22,6 +22,8 @@ python -m http.server 8000
 
 Depois acesse `http://localhost:8000`.
 
+No Cloudways, `.htaccess` redireciona os endereços antigos com `.html` para URLs limpas (`/sobre`, `/especialidades` e `/servicos`). O arquivo `index.html` continua como página de entrada, exibida na raiz do domínio.
+
 ## Arquivos
 
 - `index.html`: estrutura e conteúdo da home.

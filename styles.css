@@ -678,8 +678,8 @@ p { margin-bottom: 20px; }
 
 @media (min-width: 821px) {
   .hero-partners { width: min(650px, 100%); }
-  .hero-partner { grid-template-columns: 106px 1fr; min-height: 80px; padding: 9px 11px; }
-  .hero-partner img { width: 106px; height: 44px; }
-  .hero-partner strong { font-size: .74rem; }
-  .hero-partner small { font-size: .6rem; line-height: 1.35; }
+  .hero-partner { grid-template-columns: 122px 1fr; min-height: 90px; padding: 11px 12px; }
+  .hero-partner img { width: 122px; height: 52px; }
+  .hero-partner strong { font-size: .8rem; }
+  .hero-partner small { font-size: .66rem; line-height: 1.4; }
 }
