@@ -22,7 +22,7 @@ python -m http.server 8000
 
 Depois acesse `http://localhost:8000`.
 
-As páginas públicas usam rotas em diretórios (`/sobre/`, `/especialidades/` e `/servicos/`), compatíveis com hospedagem estática. Os arquivos `.html` antigos redirecionam para essas rotas; `index.html` continua como página de entrada na raiz do domínio.
+As páginas públicas usam rotas em diretórios (`/sobre/`, `/especialidades/` e `/servicos/`), compatíveis com hospedagem estática. Os arquivos `.html` antigos encaminham o navegador para essas rotas; `index.html` continua como página de entrada na raiz do domínio.
 
 ## Arquivos
 
