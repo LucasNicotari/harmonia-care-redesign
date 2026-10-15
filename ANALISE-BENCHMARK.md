@@ -27,7 +27,6 @@
 - Diferenciais concretos próximos dos serviços.
 - Contato comercial visível e contextualizado.
 - Informações institucionais verificáveis: endereço, horário, responsável técnico, políticas e canais.
-- Prova social real e identificável quando existe autorização.
 - Uso de imagens humanas para comunicar públicos diferentes sem exigir leitura longa.
 
 ### O que deve ser evitado
@@ -50,14 +49,12 @@
 - Cada serviço tem título, descrição curta e “Saiba mais”, sem carrossel ou controles para acessar o conteúdo.
 - Parceiros atuais posicionados depois do hero em cards de alto contraste, com descrições curtas.
 - Popup de parceiros não modal, dispensável pelo botão “X” e ocultado pelo restante da sessão após o fechamento.
-- Nenhuma avaliação, nota, estatística, certificação ou disponibilidade foi criada.
 - Mensagens de WhatsApp segmentadas sem dados de saúde.
 - CTA textual do cabeçalho substituído por um ícone flutuante de WhatsApp disponível durante toda a rolagem.
 - Setas e paginação dos carrosséis removidas. Foi preservado somente um botão mínimo de pausa para cumprir o requisito de controle sobre movimento automático.
 - Manifesto próprio da Harmonia inserido sem números promocionais: cuidado adaptado à pessoa, integração entre técnica e acolhimento e participação da família.
 - Página local de serviços criada com resumo operacional no primeiro bloco, fluxo em quatro etapas e nove modalidades detalhadas. A Terapia Ocupacional foi incluída porque aparece no catálogo público atual.
 - Os “Saiba mais” da home agora levam diretamente ao serviço correspondente na página local, evitando o destino genérico anterior.
-- Depoimentos fictícios com nomes foram rejeitados como prova social enganosa. A home usa uma faixa de compromissos de experiência explicitamente identificada como não sendo composta por relatos de clientes.
 
 ## Revisão macro da home
 
@@ -79,9 +76,8 @@
 
 1. Confirmar CNPJ, endereço, horário comercial, responsável técnico e registros profissionais antes de estruturar dados `Organization`/`LocalBusiness`.
 2. Confirmar parceiros, cidades e disponibilidade operacional.
-3. Obter depoimentos reais com autorização e origem verificável.
-4. Confirmar processo de seleção, supervisão e área de atendimento para transformar promessas institucionais em prova concreta.
-5. Definir política de privacidade e consentimento antes de ativar cookies não essenciais, GTM ou mídia paga.
+3. Confirmar processo de seleção, supervisão e área de atendimento para transformar promessas institucionais em prova concreta.
+4. Definir política de privacidade e consentimento antes de ativar cookies não essenciais, GTM ou mídia paga.
 
 ## Boas práticas adotadas
 

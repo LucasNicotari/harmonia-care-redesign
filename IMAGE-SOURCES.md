@@ -13,6 +13,6 @@ As imagens seguintes são carregadas antecipadamente, uma por vez. A resolução
 
 A foto `hero-family-black.webp` (700 × 465) foi retirada apenas do carrossel, mas o arquivo foi preservado. Para reinseri-la em tela ampla, obter original de maior resolução. Logos foram mantidos: suas dimensões disponíveis são adequadas ao tamanho usado nos cartões.
 
-Os indicadores atuais são +100 famílias atendidas e +20 profissionais na equipe, informados pelo responsável, não calculados a partir de avaliações do Google nem auditados independentemente. O terceiro indicador corresponde às oito modalidades cadastradas na página de serviços. A faixa também informa a região atendida e a personalização do cuidado. Não há atualização automática desses números; devem ser confirmados pelo responsável antes da publicação.
+Os indicadores atuais são +100 famílias atendidas e +20 profissionais na equipe, informados pelo responsável e não auditados independentemente. O terceiro indicador corresponde às oito modalidades cadastradas na página de serviços. A faixa também informa a região atendida e a personalização do cuidado. Não há atualização automática desses números; devem ser confirmados pelo responsável antes da publicação.
 
 Referência de apresentação de indicadores: https://grupohcare.com.br/ (seção Nossos Números). Nenhum indicador de outra empresa foi reutilizado.

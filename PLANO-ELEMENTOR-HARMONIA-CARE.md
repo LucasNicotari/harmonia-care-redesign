@@ -37,7 +37,6 @@ Antes de editar, obter:
 - Identificação do container do Google Tag Manager e acesso ao modo Preview; não incluir o ID ou credenciais neste repositório.
 - Configuração atual de cache/CDN e confirmação de que o encurtador `harmoniacare.short.gy` pertence à empresa.
 - Lista final de parceiros vigentes.
-- Autorização documentada para cada depoimento mantido.
 
 Não atualizar WordPress, tema ou plugins como parte deste trabalho.
 
@@ -51,7 +50,6 @@ Hero (2 colunas no desktop; 1 no celular)
 Parceiros
 Serviços (3 cards)
 Como funciona (3 passos)
-Prova social (condicional)
 CTA final
 Footer
 ```
@@ -138,18 +136,7 @@ Usar três ícones SVG da mesma família, decorativos quando o título já trans
 
 Não solicitar diagnóstico, medicação, laudo ou qualquer dado médico na mensagem pública inicial.
 
-### 3.6 Prova social
-
-**Classes:** `hc-section hc-testimonials`  
-**Regra de publicação:** condicional.
-
-- H2: **O que as famílias dizem sobre o cuidado**
-- Manter no front-end apenas depoimentos reais com autorização verificável.
-- Se a autorização não estiver disponível, ocultar toda a seção no staging público. Um placeholder pode existir apenas no editor com o rótulo explícito `[PENDENTE — DEPOIMENTO AUTORIZADO]`.
-- Não criar nomes, fotos, notas, avaliações, cargos ou histórias clínicas.
-- Sem carrossel automático; um a três depoimentos curtos em grid.
-
-### 3.7 CTA final
+### 3.6 CTA final
 
 **Classes:** `hc-final-cta`  
 **Layout:** bloco compacto, centralizado, sem imagem pesada de fundo.
@@ -158,7 +145,7 @@ Não solicitar diagnóstico, medicação, laudo ou qualquer dado médico na mens
 - Texto: **Fale com a equipe e explique o tipo de atendimento que você procura.**
 - Botão: **Conversar no WhatsApp**.
 
-### 3.8 Footer
+### 3.7 Footer
 
 Manter logotipo, telefone formatado, localidades confirmadas, links institucionais e política de privacidade. Remover `Desenvolvido pelo Elementor` se não houver obrigação contratual. Não adicionar redes sociais, endereço, e-mail ou registro profissional sem confirmação.
 
@@ -359,7 +346,7 @@ Se uma meta não for atingida, informar o valor real, evidência, causa comprova
 6. Configurar links segmentados e eventos do GTM sem publicar o container.
 7. Validar conteúdo, responsividade, acessibilidade, performance e regressão.
 8. Enviar URL protegida e comparação antes/depois ao cliente.
-9. Obter aprovação escrita da home, parceiros e depoimentos.
+9. Obter aprovação escrita da home e do conteúdo institucional.
 10. Gerar nova exportação/backup e preparar janela de publicação com rollback.
 11. Publicar somente após autorização explícita; limpar cache de forma controlada e executar smoke test.
 
@@ -375,7 +362,6 @@ Rollback: restaurar o template exportado anterior e limpar somente os caches rel
 ### Para publicar
 
 - Confirmação da lista de parceiros.
-- Autorização dos depoimentos.
 - Confirmação das localidades atendidas.
 - Aprovação formal do cliente e plano de rollback validado.
 
