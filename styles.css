@@ -696,3 +696,22 @@ p { margin-bottom: 20px; }
   .service-page .service-detail { padding: 22px 18px; }
   .service-page .care-flow.section--tight { padding: 34px 0; }
 }
+
+/* Mantém a faixa de parceiros no fluxo, logo após os botões do hero. */
+.home-page .hero-partners {
+  position: static;
+  width: min(650px, 100%);
+  margin: 24px 0 0;
+  padding: 14px 0 0;
+  background: transparent;
+  border: 0;
+  border-top: 1px solid rgba(255,255,255,.28);
+  border-radius: 0;
+  box-shadow: none;
+  backdrop-filter: none;
+  text-shadow: none;
+}
+
+@media (max-width: 620px) {
+  .home-page .hero-partners { margin-top: 20px; padding-top: 12px; }
+}
