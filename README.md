@@ -22,14 +22,14 @@ python -m http.server 8000
 
 Depois acesse `http://localhost:8000`.
 
-No Cloudways, `.htaccess` redireciona os endereços antigos com `.html` para URLs limpas (`/sobre`, `/especialidades` e `/servicos`). O arquivo `index.html` continua como página de entrada, exibida na raiz do domínio.
+As páginas públicas usam rotas em diretórios (`/sobre/`, `/especialidades/` e `/servicos/`), compatíveis com hospedagem estática. Os arquivos `.html` antigos redirecionam para essas rotas; `index.html` continua como página de entrada na raiz do domínio.
 
 ## Arquivos
 
 - `index.html`: estrutura e conteúdo da home.
-- `servicos.html`: página local detalhada de serviços e fluxo de contratação.
-- `sobre.html`: página institucional com apresentação, princípios de atendimento e áreas de atuação.
-- `especialidades.html`: orientação por necessidade, conectando situações de cuidado aos serviços correspondentes.
+- `servicos/index.html`: página de serviços em `/servicos/`; `servicos.html` redireciona para a rota limpa.
+- `sobre/index.html`: página institucional em `/sobre/`; `sobre.html` redireciona para a rota limpa.
+- `especialidades/index.html`: orientação por necessidade em `/especialidades/`; `especialidades.html` redireciona para a rota limpa.
 - `styles.css`: identidade visual e responsividade.
 - `script.js`: menu acessível, carrosséis automáticos, popup e eventos de WhatsApp.
 - `assets/images/`: assets públicos autorizados da Harmonia Care.
@@ -65,7 +65,7 @@ No Cloudways, `.htaccess` redireciona os endereços antigos com `.html` para URL
 ## Comportamentos mantidos
 
 - Carrossel principal com quatro cenas e intervalo de 5,5 segundos; avaliações com intervalo de 5 segundos e pausa durante interação. Ambos respeitam a preferência por movimento reduzido.
-- Oito serviços em grade estática, com descrições e links para a seção correspondente em `servicos.html`.
+- Oito serviços em grade estática, com descrições e links para seções correspondentes em `/servicos/`.
 - A página de serviços possui resumo operacional, oito explicações detalhadas, processo em quatro etapas e contatos de WhatsApp por serviço.
 - WhatsApp do cabeçalho sempre verde. Outros botões de WhatsApp em lilás, com mudança para verde ao passar o mouse ou receber foco.
 - A orientação compacta aparece uma única vez na página de entrada, após 12 segundos nos últimos 15% da página ou 120 segundos de permanência com a aba visível. Respeita 45 segundos após o fechamento de outro popup e permanece aberta até fechar ou clicar no contato.
