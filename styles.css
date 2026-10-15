@@ -348,9 +348,11 @@ p { margin-bottom: 20px; }
 .site-footer--refined a { text-decoration: none; }
 .site-footer--refined a:hover { color: #e4caff; }
 .site-footer--refined a:focus-visible { outline: 2px solid #d7b8fa; outline-offset: 4px; border-radius: 4px; }
+.site-footer--refined .footer__navigation { padding-top: 3px; }
+.site-footer--refined .footer__navigation h2.visually-hidden { position: static; width: auto; height: auto; margin: 0 0 11px; overflow: visible; clip: auto; white-space: normal; font-size: .7rem; letter-spacing: .11em; color: #cdb5e9; text-transform: uppercase; }
 .site-footer--refined .footer__navigation ul { display: grid; gap: 5px; }
-.site-footer--refined .footer__navigation a { display: inline-flex; align-items: center; min-height: 34px; color: #ede7f6; font-size: .9rem; transition: color 160ms ease, transform 160ms ease; }
-.site-footer--refined .footer__navigation a:hover { color: #d7b8fa; transform: translateX(3px); }
+.site-footer--refined .footer__navigation a { display: flex; align-items: center; width: 100%; min-height: 38px; padding: 0 11px; border: 1px solid transparent; border-radius: 8px; color: #ede7f6; font-size: .88rem; transition: color 160ms ease, background-color 160ms ease, border-color 160ms ease; }
+.site-footer--refined .footer__navigation a:hover { color: #f1e5ff; border-color: rgba(215,184,250,.2); background: rgba(215,184,250,.09); }
 .site-footer--refined .footer-social { min-height: 44px; padding: 10px 14px; background: rgba(215,184,250,.09); border-color: rgba(215,184,250,.25); }
 .site-footer--refined .footer-social:hover { background: rgba(215,184,250,.2); }
 .site-footer--refined .footer__phone { display: inline-flex; align-items: center; min-height: 38px; font-size: 1.24rem; font-weight: 600; letter-spacing: -.02em; }
