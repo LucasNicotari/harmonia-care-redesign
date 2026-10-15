@@ -7,7 +7,7 @@ Atualização de 15/09/2026. Fontes: acervo público da própria Harmonia Care, 
 - `hero-nursing-hd.png`: `https://harmoniacare.com.br/wp-content/uploads/2025/10/harmonia-care-05.png` — 1920 × 1280.
 - `hero-senior-asian-hd.png`: `https://harmoniacare.com.br/wp-content/uploads/2025/10/harmonia-care-04.png` — 1920 × 1280.
 
-Arquivos originais preservados sem ampliação artificial. A página usa versões WebP sem perda dos três PNGs (`hero-hd-lossless.webp`, `hero-nursing-hd-lossless.webp` e `hero-senior-asian-hd-lossless.webp`), mantendo dimensões e pixels RGBA idênticos aos originais. A comparação foi feita após decodificar ambos os formatos. O total desses três arquivos caiu de 5.892.095 para 3.314.964 bytes (43,7%). A fotografia infantil continua em JPEG.
+Os arquivos originais são preservados sem ampliação artificial. O carrossel usa quatro versões WebP com perdas leves (`hero-hd-optimized.webp`, `hero-child-hd-optimized.webp`, `hero-nursing-hd-optimized.webp` e `hero-senior-asian-hd-optimized.webp`). O total caiu de 4.104.845 para 501.010 bytes (87,8%), mantendo as dimensões originais. As imagens foram comparadas lado a lado em tamanho de exibição; não houve degradação perceptível.
 
 As imagens seguintes são carregadas antecipadamente, uma por vez. A resolução e os artefatos já presentes na fonte ainda limitam a nitidez em telas muito grandes ou de alta densidade; a conversão não recupera detalhes ausentes no original.
 
