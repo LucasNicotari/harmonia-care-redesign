@@ -652,3 +652,47 @@ p { margin-bottom: 20px; }
   .hero-partner strong { font-size: .8rem; }
   .hero-partner small { font-size: .66rem; line-height: 1.4; }
 }
+
+/* Ritmo mais compacto nas páginas internas */
+@media (min-width: 1100px) {
+  .faq__grid { align-items: center; gap: 60px; }
+  .faq__intro { position: static; }
+  .faq__intro > p:not(.eyebrow) { margin-bottom: 20px; }
+  .faq__list { grid-template-columns: repeat(2, minmax(0, 1fr)); align-content: center; gap: 10px; }
+  .faq__list details { align-self: start; }
+
+  .about-page .about-intro { padding: 52px 0 56px; }
+  .about-page .about-principles.section--tight,
+  .about-page .about-offer.section--tight { padding: 44px 0; }
+}
+
+.specialties-page .specialty-hero { padding: 42px 0 34px; }
+.specialties-page .specialty-options { padding: 34px 0 42px; }
+.specialties-page .compact-heading { margin-bottom: 22px; }
+
+.service-page .service-hero { padding: 46px 0; }
+.service-page .service-hero__grid { gap: 48px; }
+.service-page .care-summary { padding: 22px; }
+.service-page .service-catalog.section { padding: 64px 0; }
+.service-page .service-detail-grid { gap: 12px; }
+.service-page .service-detail { padding: 24px; }
+.service-page .care-flow.section--tight { padding: 42px 0; }
+
+@media (max-width: 1099px) {
+  .faq__grid { align-items: start; }
+}
+
+@media (max-width: 820px) {
+  .service-page .service-hero { padding: 40px 0; }
+  .service-page .service-hero__grid { gap: 28px; }
+  .service-page .service-catalog.section { padding: 52px 0; }
+}
+
+@media (max-width: 620px) {
+  .specialties-page .specialty-hero { padding: 30px 0 26px; }
+  .specialties-page .specialty-options { padding: 26px 0 32px; }
+  .service-page .service-hero { padding: 32px 0; }
+  .service-page .service-catalog.section { padding: 40px 0; }
+  .service-page .service-detail { padding: 22px 18px; }
+  .service-page .care-flow.section--tight { padding: 34px 0; }
+}
