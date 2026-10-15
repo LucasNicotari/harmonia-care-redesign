@@ -93,7 +93,6 @@ if (carousel) {
       slide.classList.toggle('is-active', isActive);
       slide.setAttribute('aria-hidden', String(!isActive));
     });
-    ensureSlideLoaded((currentIndex + 1) % slides.length);
   }
 
   function stopRotation() {

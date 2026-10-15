@@ -7,10 +7,12 @@ Atualização de 15/09/2026. Fontes: acervo público da própria Harmonia Care, 
 - `hero-nursing-hd.png`: `https://harmoniacare.com.br/wp-content/uploads/2025/10/harmonia-care-05.png` — 1920 × 1280.
 - `hero-senior-asian-hd.png`: `https://harmoniacare.com.br/wp-content/uploads/2025/10/harmonia-care-04.png` — 1920 × 1280.
 
-Arquivos originais preservados sem ampliação artificial. As imagens seguintes são carregadas antecipadamente, uma por vez. Arquivos maiores priorizam fidelidade, com aumento de transferência em relação às versões anteriores. A resolução da fonte ainda limita a nitidez em telas muito grandes ou de alta densidade.
+Arquivos originais preservados sem ampliação artificial. A página usa versões WebP sem perda dos três PNGs (`hero-hd-lossless.webp`, `hero-nursing-hd-lossless.webp` e `hero-senior-asian-hd-lossless.webp`), mantendo dimensões e pixels RGBA idênticos aos originais. A comparação foi feita após decodificar ambos os formatos. O total desses três arquivos caiu de 5.892.095 para 3.314.964 bytes (43,7%). A fotografia infantil continua em JPEG.
+
+As imagens seguintes são carregadas antecipadamente, uma por vez. A resolução e os artefatos já presentes na fonte ainda limitam a nitidez em telas muito grandes ou de alta densidade; a conversão não recupera detalhes ausentes no original.
 
 A foto `hero-family-black.webp` (700 × 465) foi retirada apenas do carrossel, mas o arquivo foi preservado. Para reinseri-la em tela ampla, obter original de maior resolução. Logos foram mantidos: suas dimensões disponíveis são adequadas ao tamanho usado nos cartões.
 
-Os indicadores +50 clientes, +100 serviços prestados e +20 profissionais foram fornecidos pelo cliente nesta solicitação, não calculados a partir de avaliações do Google. O quarto indicador corresponde às oito modalidades cadastradas na página de serviços. Não há atualização automática desses números.
+Os indicadores atuais são +100 famílias atendidas e +20 profissionais na equipe, informados pelo responsável, não calculados a partir de avaliações do Google nem auditados independentemente. O terceiro indicador corresponde às oito modalidades cadastradas na página de serviços. A faixa também informa a região atendida e a personalização do cuidado. Não há atualização automática desses números; devem ser confirmados pelo responsável antes da publicação.
 
 Referência de apresentação de indicadores: https://grupohcare.com.br/ (seção Nossos Números). Nenhum indicador de outra empresa foi reutilizado.
