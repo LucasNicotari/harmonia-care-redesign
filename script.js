@@ -178,3 +178,111 @@ if (whatsappNudge && partnerPopup && canShowVisitPopups()) {
     [whatsappNudge, partnerPopup].forEach(closePopup);
   });
 }
+
+const testimonialCarousel = document.querySelector('[data-testimonial-carousel]');
+
+if (testimonialCarousel) {
+  const track = testimonialCarousel.querySelector('[data-testimonial-track]');
+  const cards = [...testimonialCarousel.querySelectorAll('.testimonial-card')];
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const edgeClones = Math.min(2, cards.length);
+  let slides = cards;
+  let currentIndex = 0;
+  let virtualIndex = edgeClones;
+  let testimonialTimer;
+
+  function createEdgeClone(card) {
+    const clone = card.cloneNode(true);
+    clone.dataset.testimonialClone = '';
+    clone.setAttribute('aria-hidden', 'true');
+    return clone;
+  }
+
+  if (track && cards.length > 2) {
+    const leadingClones = cards.slice(-edgeClones).map(createEdgeClone);
+    const trailingClones = cards.slice(0, edgeClones).map(createEdgeClone);
+    track.prepend(...leadingClones);
+    track.append(...trailingClones);
+    slides = [...track.querySelectorAll('.testimonial-card')];
+  }
+
+  // Keep the complete source in memory; resizing never truncates an already cut excerpt.
+  const reviewContent = slides.map(slide => {
+    const quote = slide.querySelector('blockquote');
+    return { quote, text: quote.querySelector('.testimonial-text'), tail: quote.querySelector('.testimonial-tail'), words: quote.querySelector('.testimonial-text').textContent.match(/\S+/gu) || [] };
+  });
+  function fitReviews() {
+    reviewContent.forEach(({ quote, text, tail, words }) => {
+      const limit = parseFloat(getComputedStyle(quote).lineHeight) * 4;
+      function render(count) {
+        const truncated = count < words.length;
+        const lastWord = words[count - 1] || '';
+        text.textContent = words.slice(0, Math.max(0, count - 1)).join(' ') + (count > 1 ? ' ' : '');
+        // Keep the historic excerpt marker as plain text, without an external link.
+        tail.textContent = truncated ? lastWord.replace(/[.,;:!?]+$/u, '') + '\u2026\u00a0mais' : '';
+        quote.dataset.truncated = String(truncated);
+      }
+      render(words.length);
+      if (quote.getBoundingClientRect().height <= limit + 1) return;
+      let low = 1, high = words.length - 1, best = 1;
+      while (low <= high) {
+        const mid = Math.floor((low + high) / 2);
+        render(mid);
+        if (quote.getBoundingClientRect().height <= limit + 1 && tail.getBoundingClientRect().width <= quote.clientWidth) { best = mid; low = mid + 1; }
+        else high = mid - 1;
+      }
+      render(best);
+    });
+  }
+  fitReviews();
+
+  function positionTrack(animate = true) {
+    if (!track || !slides.length) return;
+    track.classList.toggle('is-jumping', !animate);
+    const activeCard = slides[virtualIndex];
+    const distance = activeCard.offsetLeft + (activeCard.offsetWidth / 2) - (testimonialCarousel.clientWidth / 2);
+    const maxDistance = Math.max(0, track.scrollWidth - testimonialCarousel.clientWidth);
+    track.style.transform = `translateX(-${Math.max(0, Math.min(distance, maxDistance))}px)`;
+    if (!animate) requestAnimationFrame(() => track.classList.remove('is-jumping'));
+  }
+
+  function updateTestimonialState(animate = true) {
+    slides.forEach((slide, slideIndex) => {
+      const isVisualActive = slideIndex === virtualIndex;
+      const isLogicalActive = !slide.hasAttribute('data-testimonial-clone') && slide === cards[currentIndex];
+      slide.classList.toggle('is-active', isVisualActive);
+      slide.setAttribute('aria-hidden', String(!isLogicalActive));
+    });
+    positionTrack(animate);
+  }
+
+  function showNextTestimonial() {
+    currentIndex = (currentIndex + 1) % cards.length;
+    virtualIndex += 1;
+    updateTestimonialState(true);
+  }
+
+  function startTestimonials() {
+    window.clearInterval(testimonialTimer);
+    if (!reduceMotion && !document.hidden && cards.length > 1) {
+      testimonialTimer = window.setInterval(showNextTestimonial, 5000);
+    }
+  }
+
+  updateTestimonialState(false);
+  track?.addEventListener('transitionend', (event) => {
+    if (event.propertyName !== 'transform') return;
+    if (virtualIndex >= cards.length + edgeClones) {
+      virtualIndex = edgeClones;
+      updateTestimonialState(false);
+    }
+  });
+  testimonialCarousel.addEventListener('mouseenter', () => window.clearInterval(testimonialTimer));
+  testimonialCarousel.addEventListener('mouseleave', startTestimonials);
+  testimonialCarousel.addEventListener('focusin', () => window.clearInterval(testimonialTimer));
+  testimonialCarousel.addEventListener('focusout', startTestimonials);
+  window.addEventListener('resize', () => { fitReviews(); positionTrack(false); startTestimonials(); });
+  document.fonts?.ready.then(() => { fitReviews(); positionTrack(false); });
+  document.addEventListener('visibilitychange', startTestimonials);
+  startTestimonials();
+}
