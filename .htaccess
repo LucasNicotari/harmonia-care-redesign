@@ -1,0 +1,8 @@
+AddDefaultCharset UTF-8
+
+<IfModule mod_alias.c>
+  RedirectMatch 301 ^/index\.html$ /
+  RedirectMatch 301 ^/sobre\.html$ /sobre/
+  RedirectMatch 301 ^/especialidades\.html$ /especialidades/
+  RedirectMatch 301 ^/servicos\.html$ /servicos/
+</IfModule>
